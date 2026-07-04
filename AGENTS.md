@@ -11,7 +11,7 @@ Additionally, the agent must adhere to the following constraints:
 
     Environment: Virtual Machine (Staging environment for future physical hardware deployment).
 
-    Hardware Features: Secure Boot and emulated TPM2 module enabled.
+    Hardware Features: Secure Boot and emulated TPM2 module enabled (AMD GPUs on physical target hardware).
 
     Disk Layout: Successfully provisioned declaratively via disko. Single disk, 1GB EFI partition, and LUKS encryption taking the remainder.
 
@@ -21,7 +21,7 @@ Additionally, the agent must adhere to the following constraints:
 
 ## Core Architecture Objectives
 
-    Configuration Management: 100% reproducible multi-host system (targeting both Linux desktop/laptop and macOS) managed via Nix Flakes, Home Manager, nix-darwin, and flake-parts to maintain a modular and scalable structure. User-space configurations are split into a shared core (e.g., development tools, shell settings) and host-specific Home Manager modules (e.g., isolating desktop gaming/graphics concerns).
+    Configuration Management: 100% reproducible multi-host system (targeting both Linux desktop/laptop and macOS) managed via Nix Flakes, Home Manager, nix-darwin, and flake-parts to maintain a modular and scalable structure. User-space configurations are split into a shared core (e.g., development tools, shell settings) and host-specific Home Manager modules (e.g., isolating desktop gaming/graphics concerns). System-level hardware support is configured for AMD GPUs, including hardware video acceleration (VA-API) and enabling proprietary codecs via unfree packages.
 
     Boot & Security: Implement Lanzaboote to replace the default bootloader for Secure Boot compatibility. Bind the LUKS encryption container to the TPM2 module using systemd-cryptenroll to enable auto-unlock, while retaining the passphrase in Slot 0 as a secure fallback.
 
