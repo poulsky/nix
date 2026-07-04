@@ -29,6 +29,8 @@ Additionally, the agent must adhere to the following constraints:
 
     Target Development Stack: The system will serve as a primary workstation for .NET 8 development (including standalone script-based installations of .NET Aspire) and mobile application development pipelines (Expo/EAS).
 
+    Memory Optimization: Configure zswap with zstd compression and z3fold allocator to act as a compressed cache in front of the physical swapfile, reducing SSD wear and improving responsiveness under load.
+
 ## Next Immediate Steps for the Agent
 
     Flake Foundation: Guide me through scaffolding the base flake.nix and configuration.nix files, explaining how inputs and outputs connect.
