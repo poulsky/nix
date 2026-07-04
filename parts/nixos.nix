@@ -14,6 +14,8 @@ in
 
         ../hosts/desktop/default.nix
 
+        self.nixosModules.secure-boot
+
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -32,6 +34,8 @@ in
         (import ../disko.nix { device = "/dev/vda"; swapSize = "16G"; })
 
         ../hosts/laptop/default.nix
+
+        self.nixosModules.secure-boot
 
         inputs.home-manager.nixosModules.home-manager
         {

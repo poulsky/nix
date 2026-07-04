@@ -1,7 +1,17 @@
-{ pkgs, stateVersion, ... }:
+{ pkgs, lib, stateVersion, inputs, ... }:
 
 {
+  imports = [
+    inputs.lanzaboote.nixosModules.lanzaboote
+  ];
+
   system.stateVersion = stateVersion;
+
+  boot.initrd.luks.devices."crypted" = {
+    device = "/dev/vda2";
+    preLVM = true;
+    cryptenrollArgs = [ "--tpm2-device=auto" ];
+  };
 
   nixpkgs.config.allowUnfree = true;
 
