@@ -21,7 +21,7 @@ Additionally, the agent must adhere to the following constraints:
 
 ## Core Architecture Objectives
 
-    Configuration Management: 100% reproducible multi-host system (targeting both Linux desktop/laptop and macOS) managed via Nix Flakes, Home Manager, nix-darwin, and flake-parts to maintain a modular and scalable structure.
+    Configuration Management: 100% reproducible multi-host system (targeting both Linux desktop/laptop and macOS) managed via Nix Flakes, Home Manager, nix-darwin, and flake-parts to maintain a modular and scalable structure. User-space configurations are split into a shared core (e.g., development tools, shell settings) and host-specific Home Manager modules (e.g., isolating desktop gaming/graphics concerns).
 
     Boot & Security: Implement Lanzaboote to replace the default bootloader for Secure Boot compatibility. Bind the LUKS encryption container to the TPM2 module using systemd-cryptenroll to enable auto-unlock, while retaining the passphrase in Slot 0 as a secure fallback.
 
