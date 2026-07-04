@@ -30,6 +30,7 @@
       imports = [
         ./parts/nixos.nix
         ./parts/secure-boot.nix
+        ./parts/development.nix
       ];
 
       systems = [

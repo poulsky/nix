@@ -7,4 +7,9 @@
     preLVM = true;
     cryptenrollArgs = [ "--tpm2-device=auto" ];
   };
+
+  users.users.mikkel = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
 }

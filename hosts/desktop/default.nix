@@ -33,4 +33,9 @@
     enableWsi = true;
     capSysNice = true;
   };
+
+  users.users.mikkel = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
 }
