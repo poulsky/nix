@@ -33,6 +33,8 @@ Additionally, the agent must adhere to the following constraints:
 
     Memory Optimization: Configure zswap with zstd compression and z3fold allocator to act as a compressed cache in front of the physical swapfile, reducing SSD wear and improving responsiveness under load.
 
+    Future Goal - Impermanence: Later migrate the physical hosts to a fully impermanent system (wiping root BTRFS subvolume on boot) by leveraging the `preservation` module to declaratively manage persistent files and directories over the `/persist` subvolume.
+
 ## Next Immediate Steps for the Agent
 
     Flake Foundation: Guide me through scaffolding the base flake.nix and configuration.nix files, explaining how inputs and outputs connect.
