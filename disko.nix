@@ -1,10 +1,10 @@
-{
+{ device ? "/dev/vda", swapSize ? "8G" }: {
   disko.devices = {
     disk = {
       main = {
         type = "disk";
         # IMPORTANT: match physical device name to avoid wiping the wrong disk
-        device = "/dev/vda";
+        device = device;
         content = {
           type = "gpt";
           partitions = {
@@ -55,7 +55,7 @@
                     };
                     "/swap" = {
                       mountpoint = "/swap";
-                      swap.swapfile.size = "8G";
+                      swap.swapfile.size = swapSize;
                     };
                     # Future-proofing: Persist subvolume for impermanence
                     "/persist" = {
