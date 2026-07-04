@@ -15,7 +15,7 @@ Additionally, the agent must adhere to the following constraints:
 
     Disk Layout: Successfully provisioned declaratively via disko. Single disk, 1GB EFI partition, and LUKS encryption taking the remainder.
 
-    File System: BTRFS inside the LUKS container. Subvolumes are provisioned and mounted for / (root), /nix, /home, /var/log, /var/lib, /swap (containing an 8GB swapfile), and an empty /persist placeholder for future system impermanence.
+    File System: BTRFS inside the LUKS container. Subvolumes are provisioned and mounted for / (root), /nix, /home, /var/log, /var/lib, /swap (containing a swapfile, parameterized to allow host-specific swap sizes), and an empty /persist placeholder for future system impermanence.
 
     Version Control: Git repository is initialized and synced with the VM for managing .nix configuration files.
 
