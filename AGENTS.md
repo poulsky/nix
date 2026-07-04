@@ -25,13 +25,15 @@ Additionally, the agent must adhere to the following constraints:
 
     Boot & Security: Implement Lanzaboote to replace the default bootloader for Secure Boot compatibility. Bind the LUKS encryption container to the TPM2 module using systemd-cryptenroll to enable auto-unlock, while retaining the passphrase in Slot 0 as a secure fallback.
 
-    Development Workflow Integration: The host system configuration must be optimized for resource efficiency by prioritizing native toolchains. A primary goal is configuring Podman and Devbox natively to manage isolated environments, effectively replacing heavy compute-resource virtualization like VS Code Devcontainers.
+    Development Workflow Integration: The host system configuration must be optimized for resource efficiency by prioritizing native toolchains. A primary goal is configuring Podman and Devbox natively to manage isolated environments, effectively replacing heavy compute-resource virtualization like VS Code Devcontainers. This includes configuring rootless Podman with Netavark DNS for container coordination (such as .NET Aspire services), and enabling `nix-ld` to seamlessly run unpatched precompiled binaries (like dynamic Node modules in Expo/EAS or external debugger tools).
 
     Target Development Stack: The system will serve as a primary workstation for .NET 8 development (including standalone script-based installations of .NET Aspire) and mobile application development pipelines (Expo/EAS).
 
     Application Sandboxing: Enable Flatpak support to run proprietary/social GUI applications (e.g., Spotify, Discord) in a sandboxed environment, keeping them isolated from the core development workstation settings, with the option to manage them declaratively.
 
     Memory Optimization: Configure zswap with zstd compression and zsmalloc allocator to act as a compressed cache in front of the physical swapfile, reducing SSD wear and improving responsiveness under load.
+
+    System Maintenance: Automate Btrfs scrubs to preserve filesystem integrity, and configure automatic weekly Nix store garbage collection alongside store optimization to prevent disk bloat.
 
     Future Goal - Impermanence: Later migrate the physical hosts to a fully impermanent system (wiping root BTRFS subvolume on boot) by leveraging the `preservation` module to declaratively manage persistent files and directories over the `/persist` subvolume.
 
