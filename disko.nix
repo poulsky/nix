@@ -35,23 +35,23 @@
                   subvolumes = {
                     "/root" = {
                       mountpoint = "/";
-                      mountOptions = [ "compress=zstd", "noatime" ];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/nix" = {
                       mountpoint = "/nix";
-                      mountOptions = [ "compress=zstd", "noatime" ];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/home" = {
                       mountpoint = "/home";
-                      mountOptions = [ "compress=zstd", "noatime" ];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/var/log" = {
                       mountpoint = "/var/log";
-                      mountOptions = [ "compress=zstd", "noatime" ];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/var/lib" = {
                       mountpoint = "/var/lib";
-                      mountOptions = [ "compress=zstd", "noatime" ];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/swap" = {
                       mountpoint = "/swap";
@@ -60,7 +60,7 @@
                     # Future-proofing: Persist subvolume for impermanence
                     "/persist" = {
                       mountpoint = "/persist";
-                      mountOptions = [ "compress=zstd", "noatime" ];
+                      mountOptions = [ "compress=zstd" "noatime" ];
                     };
                   };
                 };
