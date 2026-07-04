@@ -31,7 +31,7 @@ Additionally, the agent must adhere to the following constraints:
 
     Application Sandboxing: Enable Flatpak support to run proprietary/social GUI applications (e.g., Spotify, Discord) in a sandboxed environment, keeping them isolated from the core development workstation settings, with the option to manage them declaratively.
 
-    Memory Optimization: Configure zswap with zstd compression and z3fold allocator to act as a compressed cache in front of the physical swapfile, reducing SSD wear and improving responsiveness under load.
+    Memory Optimization: Configure zswap with zstd compression and zsmalloc allocator to act as a compressed cache in front of the physical swapfile, reducing SSD wear and improving responsiveness under load.
 
     Future Goal - Impermanence: Later migrate the physical hosts to a fully impermanent system (wiping root BTRFS subvolume on boot) by leveraging the `preservation` module to declaratively manage persistent files and directories over the `/persist` subvolume.
 
