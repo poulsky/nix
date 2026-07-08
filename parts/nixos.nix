@@ -16,6 +16,7 @@ in
 
         self.nixosModules.secure-boot
         self.nixosModules.development
+        self.nixosModules.workstation-system
 
         inputs.home-manager.nixosModules.home-manager
         {
@@ -38,7 +39,8 @@ in
 
         self.nixosModules.secure-boot
         self.nixosModules.development
-
+        self.nixosModules.workstation-system
+        
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

@@ -31,6 +31,7 @@
         ./parts/nixos.nix
         ./parts/secure-boot.nix
         ./parts/development.nix
+        ./parts/system.nix
       ];
 
       systems = [
