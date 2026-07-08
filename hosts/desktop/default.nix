@@ -10,7 +10,7 @@
   boot.initrd.luks.devices."crypted" = {
     device = "/dev/vda2";
     preLVM = true;
-    cryptenrollArgs = [ "--tpm2-device=auto" ];
+    crypttabExtraOpts = [ "--tpm2-device=auto" ];
   };
 
   nixpkgs.config.allowUnfree = true;
