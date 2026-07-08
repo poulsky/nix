@@ -17,7 +17,7 @@
     fd
     fzf
     bat
-    exa
+    eza
     btop
     jq
     fastfetch
