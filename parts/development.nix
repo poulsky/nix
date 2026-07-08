@@ -4,17 +4,18 @@
   flake.nixosModules.development = { pkgs, ... }: {
     virtualisation.podman = {
       enable = true;
+      dockerCompat = true;
+      dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
-    };
 
-    virtualisation.docker = {
-      enable = true;
+      autoPrune = {
+        enable = true;
+        dates = "weekly";
+      };
     };
 
     # For devcontainers
     virtualisation.containers.registries.search = [ "docker.io" ];
-
-    users.users.mikkel.extraGroups = [ "docker" "podman" ];
 
     programs.nix-ld = {
       enable = true;

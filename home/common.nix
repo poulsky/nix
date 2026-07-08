@@ -34,6 +34,10 @@
       l = "ls -CF";
       rebuild = "sudo nixos-rebuild switch --flake";
     };
+    sessionVariables = {
+      EDITOR = "vim";
+      DOCKER_HOST = "unix:///run/user/1000/podman/podman.sock";
+    }
   };
 
   programs.git = {
